@@ -1,0 +1,1 @@
+from services.segment_image import app

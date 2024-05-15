@@ -1,4 +1,4 @@
 .venv
-resources
 generated
+uploads
 __pycache__
