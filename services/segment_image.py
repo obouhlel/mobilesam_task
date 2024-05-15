@@ -1,6 +1,4 @@
 import os
-import random
-import string
 from services import app
 from fastapi import UploadFile, HTTPException
 from fastapi.responses import JSONResponse
@@ -11,7 +9,6 @@ from MobileSAM.segment import segment_everything
 async def segment_image(image: UploadFile):
 	output_path = "generated/"
 	upload_path = "uploads/"
-	img_extensions = ['jpg', 'jpeg', 'png']
 
 	# Create the directories if they don't exist
 	os.makedirs(output_path, exist_ok=True)
@@ -22,10 +19,6 @@ async def segment_image(image: UploadFile):
 	with open(image_filename, "wb") as buffer:
 		content = await image.read()
 		buffer.write(content)
-
-	# Check extension of the image file
-	if image_filename.split('.')[-1] not in img_extensions:
-		return HTTPException(status_code=400, detail="Invalid image file extension")
 	
 	# Open the image file
 	try:
