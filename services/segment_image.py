@@ -7,11 +7,6 @@ from fastapi.responses import JSONResponse
 from PIL import Image
 from MobileSAM.segment import segment_everything
 
-def generate_random_string(length=10):
-    letters = string.ascii_lowercase
-    result_str = ''.join(random.choice(letters) for i in range(length))
-    return result_str
-
 @app.post("/segment-image")
 async def segment_image(image: UploadFile):
 	output_path = "generated/"
