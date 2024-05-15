@@ -22,15 +22,20 @@ This project provides a RESTful API for segmenting images using the MobileSAM mo
 ```bash
 command -v python3
 ```
-2. Install dependencies:
+2. Create a virtual environment and activate it
+```bash
+python -m venv .venv
+source .venv/bin/activate
+```
+3. Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
-3. Run the FastAPI server:
+4. Run the FastAPI server:
 ```bash
 fastapi run main.py
 ```
-4. Now the server is running at the port 8000 and you can test with the command curl, an example :
+5. Now the server is running at the port 8000 and you can test with the command curl, an example :
 ```bash
 curl -s -X 'POST' \
 	'http://localhost:8000/segment-image' \
@@ -50,4 +55,16 @@ chmod +x test.sh
 ./test.sh
 ```
 
+> You can put an image file on resources folder, and it's will be tested with all files.
+
 ## Docker (Bonus)
+
+1. Ensure you have Docker installed
+2. Build the docker
+```bash
+docker build -t segment-image .
+```
+3. Run the server
+```bash
+docker run -it -p 8000:8000 segment-image
+```

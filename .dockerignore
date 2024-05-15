@@ -1,0 +1,8 @@
+.venv
+generated
+resources
+uploads
+__pycache__
+.git
+.gitignore
+test.sh
